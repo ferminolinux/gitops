@@ -1,0 +1,5 @@
+parameters:
+  version: 24.04
+ubuntu:
+  type: image
+  url: https://releases.ubuntu.com/{{ version }}/ubuntu-{{ version }}-live-server-amd64.iso

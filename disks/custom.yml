@@ -1,8 +1,0 @@
-parameters:
-  size:
-  vms:
-  pool:
-custom:
-  type: disk
-  size: {{ size }}
-  pool: {{ pool }}

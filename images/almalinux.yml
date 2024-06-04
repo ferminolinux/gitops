@@ -1,0 +1,5 @@
+parameters:
+  version: 9.4
+almalinux:
+  type: image
+  url: https://repo.almalinux.org/almalinux/{{ version }}/isos/x86_64/AlmaLinux-{{ version }}-x86_64-minimal.iso
