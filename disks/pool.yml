@@ -1,3 +1,0 @@
-kvm:
-  type: pool
-  path: /kvm

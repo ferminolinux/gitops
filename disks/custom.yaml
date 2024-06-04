@@ -1,0 +1,7 @@
+parameters:
+  size:
+  pool:
+custom:
+  type: disk
+  size: {{ size }}
+  pool: {{ pool }}

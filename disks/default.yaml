@@ -1,0 +1,6 @@
+parameters:
+  pool:
+default:
+  type: disk
+  size: 50G
+  pool: {{ pool }}
