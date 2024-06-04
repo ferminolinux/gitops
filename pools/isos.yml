@@ -1,0 +1,5 @@
+parameters:
+  path:
+isos:
+  type: pool
+  path: {{ path }}
