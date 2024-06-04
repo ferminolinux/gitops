@@ -1,5 +1,9 @@
 parameters:
-  path:
+  vms-path:
+  isos-path:
 kvm:
   type: pool
-  path: {{ path }}
+  path: {{ vms-path }}
+isos:
+  type: pool
+  path: {{ isos-path }}
