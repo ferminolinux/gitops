@@ -1,5 +1,6 @@
 parameters:
   pool:
+  vms:
 default:
   type: disk
   size: 50
