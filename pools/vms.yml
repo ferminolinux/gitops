@@ -1,7 +1,7 @@
 parameters:
-  vms-path: "/kvm"
-  iso-path: "/isos"
-vms:
+  vms-path:
+  iso-path:
+machines:
   type: pool
   path: {{ vms-path }}
 isos:
