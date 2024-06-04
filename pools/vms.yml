@@ -1,5 +1,5 @@
 parameters:
-  path:
+  path: /kvm
 vms:
   type: pool
   path: {{ path }}
