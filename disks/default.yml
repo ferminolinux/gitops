@@ -2,5 +2,5 @@ parameters:
   pool:
 default:
   type: disk
-  size: 50G
+  size: 50
   pool: {{ pool }}
