@@ -1,6 +1,8 @@
-parameters:
-  version: 24.04
-ubuntu:
+ubuntu2204:
   type: image
-  url: https://releases.ubuntu.com/{{ version }}/ubuntu-{{ version }}-live-server-amd64.iso
+  url: https://releases.ubuntu.com/22.04/ubuntu-22.04-live-server-amd64.iso
   pool: isos
+almalinux94:
+  type: image
+  url: https://repo.almalinux.org/almalinux/9.4/isos/x86_64/AlmaLinux-9.4-x86_64-minimal.iso
+
