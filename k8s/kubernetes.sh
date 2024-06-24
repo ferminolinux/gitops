@@ -32,5 +32,5 @@ gpgcheck=1
 gpgkey=https://pkgs.k8s.io/addons:/cri-o:/prerelease:/main/rpm/repodata/repomd.xml.key
 EOF
 
-
+sudo yum update -y
 sudo yum install -y kubectl kubeadm kubectl cri-o cri-tools kubernetes-cni containernetworking-plugins
