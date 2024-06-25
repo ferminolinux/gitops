@@ -19,7 +19,6 @@ baseurl=https://pkgs.k8s.io/core:/stable:/v1.30/rpm/
 enabled=1
 gpgcheck=1
 gpgkey=https://pkgs.k8s.io/core:/stable:/v1.30/rpm/repodata/repomd.xml.key
-exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
 EOF
 
 # enable crio-o
@@ -33,4 +32,15 @@ gpgkey=https://pkgs.k8s.io/addons:/cri-o:/prerelease:/main/rpm/repodata/repomd.x
 EOF
 
 sudo yum update -y
-sudo yum install -y kubectl kubeadm kubectl cri-o cri-tools kubernetes-cni containernetworking-plugins
+sudo yum install -y kubectl kubeadm kubelet cri-o cri-tools kubernetes-cni containernetworking-plugins
+sudo systemctl enable --now crio
+
+mkdir -p /home/vagrant/.kube/
+sudo chown vagrant:vagrant /home/vagrant/.kube/config
+
+if [[ $(hostnamectl hostname) -eq "controlplane" ]] ; then
+  # control-plane
+  sudo kubeadm init
+  sudo cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
+fi
+
