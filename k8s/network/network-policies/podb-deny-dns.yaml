@@ -1,21 +1,37 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: ingress-poda
+  name: egress-enable-dns
 spec:
   podSelector:
     matchLabels:
-      run: poda
+      run: podb
   policyTypes:
-    - Ingress
-  ingress:
-    - from:
+    - Egress
+  egress:
+    - to:
         - podSelector:
             matchLabels:
               run: podc
       ports:
-        - port: 80
-          protocol: TCP
+        - protocol: TCP
+          port: 53
+        - protocol: UDP
+          port: 53  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
