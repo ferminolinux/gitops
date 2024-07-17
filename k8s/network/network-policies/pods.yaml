@@ -1,0 +1,139 @@
+#####################################
+#             NAMESPACES            #  
+#####################################
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lab
+---
+#####################################
+#             PODS                  #  
+#####################################
+
+# 1 - Pods na mesma máquina e na mesma namespace
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-1-default
+  labels:
+    app: nginx-1-default
+spec:
+  nodeName: minikube
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - protocol: TCP
+          containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-2-default
+  labels:
+    app: nginx-2-default
+spec:
+  nodeName: minikube
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - protocol: TCP
+          containerPort: 80
+---
+# 2 - Pods na mesma namespace mas em máquinas diferentes
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-1-lab
+  namespace: lab
+  labels:
+    app: nginx-1-lab
+spec:
+  nodeName: minikube
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - protocol: TCP
+          containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-2-lab
+  namespace: lab
+  labels:
+    app: nginx-2-lab
+spec:
+  nodeName: minikube-m02
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - protocol: TCP
+          containerPort: 80
+---
+# 3 - Pods em namespaces diferentes mas na mesma máquina
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-3-default
+  labels:
+    app: nginx-3-default
+spec:
+  nodeName: minikube
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - protocol: TCP
+          containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-3-lab
+  namespace: lab
+  labels:
+    app: nginx-3-lab
+spec:
+  nodeName: minikube
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - protocol: TCP
+          containerPort: 80
+---
+# 4 - Pods em namespaces diferentes e em máquinas diferentes
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-4-lab
+  namespace: lab
+  labels:
+    app: nginx-4-lab
+spec:
+  nodeName: minikube
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - protocol: TCP
+          containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-4-default
+  labels:
+    app: nginx-4-default
+spec:
+  nodeName: minikube-m02
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - protocol: TCP
+          containerPort: 80

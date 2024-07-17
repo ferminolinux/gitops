@@ -1,18 +1,23 @@
+# 
+# Netpol 1 - Permite que um pod A seja acessado apenas por um PodB que está em outro nó
+#
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: ingress-podc
+  name: netpol1
+  namespace: lab
 spec:
   podSelector:
     matchLabels:
-      run: podc
+      app: nginx-1-lab
   policyTypes:
     - Ingress
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              run: poda
+              app: nginx-2-lab
       ports:
         - protocol: TCP
           port: 80
+
